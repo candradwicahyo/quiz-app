@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  background: royalblue;
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.box {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.box .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.box .title {
+  font-size: 1.5rem;
+}
+
+.box .question {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.box .list-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.box .list-container .list {
+  position: relative;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.4);
+  font-size: 0.8rem;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.box .list-container .list.correct {
+  background: #9aeabc;
+}
+
+.box .list-container .list.incorrect {
+  background: #ff9393;
+}
+
+.button {
+  position: relative;
+  padding: 12px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.button-dark {
+  background: #333;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .container {
+    width: 90%;
+  }
+  
+}
