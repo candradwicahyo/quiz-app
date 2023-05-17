@@ -50,13 +50,17 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   ];
   
+  const limitTime = 10;
   let currentQuestionIndex = 0;
+  let time = limitTime;
   let score = 0;
+  let interval;
   
   const question = document.querySelector('.question');
   const listContainer = document.querySelector('.list-container');
   const totalQuestion = document.querySelector('.total-question');
   const nextBtn = document.querySelector('.btn-next');
+  const timer = document.querySelector('.timer');
   
   function startQuizGame() {
     currentQuestionIndex = 0;
@@ -72,9 +76,12 @@ window.addEventListener("DOMContentLoaded", () => {
     const data = questions[currentQuestionIndex];
     question.textContent = `${currentQuestionIndex + 1}. ${data.question}`;
     totalQuestion.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
+    time = limitTime;
+    timer.textContent = time;
     nextBtn.style.display = 'none';
     listContainer.innerHTML = '';
     setButton(data.answer);
+    setTimer();
   }
   
   function setButton(answers) {
@@ -99,11 +106,12 @@ window.addEventListener("DOMContentLoaded", () => {
   function getAnswer(event) {
     const target = event.target;
     if (target.dataset.correct == "true") {
-      target.classList.add('correct'); 
+      target.classList.add('correct');
       score++;
     } else {
       target.classList.add('incorrect');
     }
+    clearInterval(interval);
     const buttons = listContainer.querySelectorAll('.btn-answer');
     buttons.forEach(button => {
       if (button.dataset.correct == "true") button.classList.add('correct');
@@ -114,19 +122,39 @@ window.addEventListener("DOMContentLoaded", () => {
   
   nextBtn.addEventListener('click', () => {
     currentQuestionIndex++;
+    nextStep();
+  });
+  
+  function nextStep() {
     if (currentQuestionIndex < questions.length) {
       showQuestions();
     } else if (currentQuestionIndex == questions.length) {
       showScore();
       nextBtn.textContent = 'Play Again';
+      nextBtn.style.display = 'block';
+      clearInterval(interval);
+      time = 0;
+      timer.textContent = time;
     } else {
       startQuizGame();
     }
-  });
+  }
   
   function showScore() {
     listContainer.innerHTML = '';
     question.textContent = `You Scored ${score} Out Of ${questions.length} Questions`;
+  }
+  
+  function setTimer() {
+    clearInterval(interval);
+    interval = setInterval(() => {
+      time--;
+      timer.textContent = time;
+      if (time == 0) {
+        currentQuestionIndex++;
+        nextStep();
+      }
+    }, 1000);
   }
   
 });

@@ -31,6 +31,23 @@ body {
   overflow: hidden;
 }
 
+.box .timer-box {
+  position: relative;
+  padding: 10px;
+  width: 30%;
+  background: royalblue;
+  margin-bottom: 10px;
+}
+
+.box .timer-box .timer {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: white;
+  letter-spacing: 1px;
+  display: block;
+  text-align: center;
+}
+
 .box .wrapper {
   display: flex;
   justify-content: space-between;
@@ -39,7 +56,7 @@ body {
 }
 
 .box .title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .box .question {
