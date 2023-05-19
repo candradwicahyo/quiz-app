@@ -35,7 +35,6 @@ window.addEventListener("DOMContentLoaded", () => {
       nextBtn.style.display = 'none';
       showQuestions(data);
     } catch (error) {
-      console.log(error)
       const box = document.querySelector('.box');
       box.innerHTML = setAlert('danger', error.message);
     }
