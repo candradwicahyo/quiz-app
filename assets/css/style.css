@@ -13,6 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -82,11 +83,13 @@ body {
   cursor: pointer;
 }
 
-.box .list-container .list.correct {
+.box .list-container .list.correct,
+.alert-success {
   background: #9aeabc;
 }
 
-.box .list-container .list.incorrect {
+.box .list-container .list.incorrect,
+.alert-danger {
   background: #ff9393;
 }
 
@@ -103,6 +106,23 @@ body {
 
 .button-dark {
   background: #333;
+}
+
+.alert-container {
+  margin-bottom: 10px;
+}
+
+.alert {
+  position: relative;
+  width: 100%;
+  padding: 20px 20px;
+}
+
+.alert span {
+  display: flex;
+  margin: auto 0;
+  font-weight: 300;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,92 +1,65 @@
 window.addEventListener("DOMContentLoaded", () => {
   
-  const questions = [
-    {
-      question: 'Siapakah Presiden Indonesia Yang Ke-7?',
-      answer: [
-        { text: 'Soeharto', correct: false },
-        { text: 'Soekarno', correct: false },
-        { text: 'Gusdur', correct: false },
-        { text: 'BJ Habibie', correct: false },
-        { text: 'Joko Widodo', correct: true },
-        { text: 'Susilo Bambang Yudoyono', correct: false }
-      ]
-    }, 
-    {
-      question: 'Dua Tiga Tutup Botol, Muka Kamu Kayak ...',
-      answer: [
-        { text: 'Kecap', correct: false },
-        { text: 'Botol', correct: true },
-        { text: 'Cendol', correct: false }
-      ]
-    },
-    {
-      question: 'Siapa Karakter Jahat Paling Kuat Di Naruto?',
-      answer: [
-        { text: 'Obito', correct: false },
-        { text: 'Uciha Madara', correct: true },
-        { text: 'Pain', correct: false },
-        { text: 'Sakura', correct: false }
-      ]
-    },
-    {
-      question: 'Tanggal Berapa Negara Indonesia Merdeka?',
-      answer: [
-        { text: '17 Agustus 1945', correct: true },
-        { text: '20 Mei 2004', correct: false },
-        { text: '12 April 1500', correct: false },
-        { text: '30 Desember 1745', correct: false }
-      ]
-    },
-    {
-      question: 'Anime Terbaik Sepanjang Masa?',
-      answer: [
-        { text: 'Naruto', correct: false },
-        { text: 'One Piece', correct: true },
-        { text: 'Jujutsu Kaisen', correct: false },
-        { text: 'Dragon Ball', correct: false },
-        { text: 'Boku No Pico', correct: false }
-      ]
-    }
-  ];
+  const limitTime = 20;
   
-  const limitTime = 10;
   let currentQuestionIndex = 0;
   let time = limitTime;
   let score = 0;
   let interval;
   
+  const alertContainer = document.querySelector('.alert-container');
   const question = document.querySelector('.question');
   const listContainer = document.querySelector('.list-container');
   const totalQuestion = document.querySelector('.total-question');
   const nextBtn = document.querySelector('.btn-next');
   const timer = document.querySelector('.timer');
   
-  function startQuizGame() {
-    currentQuestionIndex = 0;
-    score = 0;
-    nextBtn.textContent = 'Next Question';
-    nextBtn.style.display = 'none';
-    showQuestions();
+  function fetchData() {
+    return fetch('assets/js/questions.json')
+      .then(response => {
+        if (response.status === 404) throw new Error('File not found!');
+        return response.json();
+      })
+      .then(response => response.data)
+      .catch(error => {
+        throw new Error(error);
+      });
+  }
+  
+  async function startQuizGame() {
+    try {
+      const data = await fetchData();
+      currentQuestionIndex = 0;
+      score = 0;
+      nextBtn.textContent = 'Next Question';
+      nextBtn.style.display = 'none';
+      showQuestions(data);
+    } catch (error) {
+      console.log(error)
+      const box = document.querySelector('.box');
+      box.innerHTML = setAlert('danger', error.message);
+    }
   }
   
   startQuizGame();
   
-  function showQuestions() {
+  function showQuestions(questions) {
     const data = questions[currentQuestionIndex];
     question.textContent = `${currentQuestionIndex + 1}. ${data.question}`;
     totalQuestion.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
+    nextBtn.style.display = 'none';
+    alertContainer.innerHTML = '';
+    listContainer.innerHTML = '';
     time = limitTime;
     timer.textContent = time;
-    nextBtn.style.display = 'none';
-    listContainer.innerHTML = '';
-    setButton(data.answer);
+    setButton(data.answers);
     setTimer();
   }
   
   function setButton(answers) {
     answers.forEach(answer => {
       const button = create('div', 'list btn-answer', answer.text, true);
+      button.setAttribute('data-explanation', answer.explanation);
       button.setAttribute('data-correct', answer.correct);
       button.addEventListener('click', getAnswer);
       listContainer.appendChild(button);
@@ -112,24 +85,24 @@ window.addEventListener("DOMContentLoaded", () => {
       target.classList.add('incorrect');
     }
     clearInterval(interval);
+    showAlert(target.dataset.correct == "true" ? 'success' : 'danger', target.dataset.explanation);
     const buttons = listContainer.querySelectorAll('.btn-answer');
     buttons.forEach(button => {
       if (button.dataset.correct == "true") button.classList.add('correct');
-      button.disabled = true;
+      button.setAttribute('disabled', true);
       nextBtn.style.display = 'block';
     });
   }
   
-  nextBtn.addEventListener('click', () => {
-    currentQuestionIndex++;
-    nextStep();
-  });
+  nextBtn.addEventListener('click', nextStep);
   
-  function nextStep() {
-    if (currentQuestionIndex < questions.length) {
-      showQuestions();
-    } else if (currentQuestionIndex == questions.length) {
-      showScore();
+  async function nextStep() {
+    const data = await fetchData();
+    currentQuestionIndex++;
+    if (currentQuestionIndex < data.length) {
+      showQuestions(data);
+    } else if (currentQuestionIndex == data.length) {
+      showScore(data);
       nextBtn.textContent = 'Play Again';
       nextBtn.style.display = 'block';
       clearInterval(interval);
@@ -140,7 +113,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  function showScore() {
+  function showScore(questions) {
     listContainer.innerHTML = '';
     question.textContent = `You Scored ${score} Out Of ${questions.length} Questions`;
   }
@@ -150,11 +123,26 @@ window.addEventListener("DOMContentLoaded", () => {
     interval = setInterval(() => {
       time--;
       timer.textContent = time;
-      if (time == 0) {
-        currentQuestionIndex++;
-        nextStep();
-      }
+      if (time == 0) nextStep();
     }, 1000);
+  }
+  
+  function showAlert(type, message) {
+    alertContainer.innerHTML = setAlert(type, message);
+  }
+  
+  function setAlert(type, message) {
+    return `
+      <div class="alert ${setTypeAlert(type.toLowerCase())}">
+        <span>${message}</span>
+      </div>
+    `;
+  }
+  
+  function setTypeAlert(type) {
+    if (type === 'success') return 'alert-success';
+    if (type === 'danger') return 'alert-danger';
+    return false;
   }
   
 });

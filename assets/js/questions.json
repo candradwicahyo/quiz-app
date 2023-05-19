@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "question": "Apa yang menyebabkan warna daun berubah menjadi merah, kuning, atau oranye pada musim gugur?",
+      "answers": [
+        { "text": "Perubahan pigmen daun.", "explanation": "Pada musim gugur, proses fotosintesis dalam daun berkurang karena jumlah cahaya matahari yang tersedia lebih sedikit. Seiring dengan itu, produksi klorofil, pigmen hijau yang bertanggung jawab untuk warna daun sepanjang tahun, juga menurun. Akibatnya, pigmen lain seperti karotenoid (kuning) dan antosianin (merah atau ungu) menjadi lebih terlihat, menyebabkan perubahan warna daun menjadi merah, kuning, atau oranye.", "correct": true },
+        { "text": "Penurunan suhu", "explanation": "Meskipun penurunan suhu pada musim gugur berkontribusi terhadap perubahan warna daun, bukan menjadi penyebab langsung. Penurunan produksi klorofil dan perubahan pigmen adalah faktor utama dalam perubahan warna daun.", "correct": false }
+      ]
+    },
+    {
+      "question": "Apa yang menjadi penyebab terjadinya gerhana bulan?",
+      "answers": [
+        { "text": "Pergerakan bulan", "explanation": "Pergerakan Bulan mengelilingi Bumi, tetapi itu bukanlah penyebab langsung dari gerhana bulan. Gerhana bulan terjadi karena posisi relatif antara Bumi, Matahari, dan Bulan, di mana Bumi berada di antara Matahari dan Bulan.", "correct": false },
+        { "text": "Bayangan Bumi", "explanation": "Gerhana bulan terjadi ketika Bumi berada di antara Matahari dan Bulan, sehingga bayangan Bumi jatuh ke Bulan. Ketika Bulan berada dalam bayangan Bumi, cahaya Matahari yang biasanya memantul langsung ke Bulan terblokir, dan Bulan menjadi redup atau bahkan tampak merah saat terkena sinar matahari yang dipantulkan oleh atmosfer Bumi.", "correct": true }
+      ]
+    },
+    {
+      "question": "Apa yang menjadi perbedaan antara komet dan asteroid?",
+      "answers": [
+        { "text": "Ukuran", "explanation": "Ukuran tidak menjadi perbedaan antara komet dan asteroid. Keduanya dapat memiliki berbagai ukuran, mulai dari beberapa meter hingga ratusan kilometer.", "correct": false },
+        { "text": "Komposisi dan asal usul.", "explanation": "Komet terdiri dari campuran es, gas, debu, dan batuan. Mereka biasanya berasal dari sabuk Kuiper atau awan Oort di luar Tata Surya. Ketika komet mendekati Matahari, panasnya menyebabkan es menguap dan membentuk ekor komet yang terlihat. Asteroid, di sisi lain, terdiri terutama dari batuan dan logam dan terletak terutama di sabuk asteroid antara orbit Mars dan Jupiter.", "correct": true },
+        { "text": "Bentuk", "explanation": "Meskipun bentuknya dapat bervariasi, tidak ada perbedaan yang konsisten dalam bentuk antara komet dan asteroid.", "correct": false }
+      ]
+    },
+    {
+      "question": "Apa yang menjadi penyebab terjadinya angin?",
+      "answers": [
+        { "text": "Perbedaan suhu dan tekanan udara.", "explanation": "Angin terjadi karena adanya perbedaan suhu dan tekanan udara di berbagai wilayah. Ketika suhu udara di suatu daerah berbeda, tekanan udara juga akan berbeda. Perbedaan tekanan udara ini menciptakan aliran udara yang bergerak dari area dengan tekanan tinggi ke area dengan tekanan rendah, yang menyebabkan terjadinya angin.", "correct": true },
+        { "text": "Pergerakan Matahari", "explanation": "Pergerakan Matahari tidak secara langsung menyebabkan angin. Walaupun pergerakan Matahari berpengaruh pada pola suhu global, angin sendiri disebabkan oleh perbedaan suhu dan tekanan udara.", "correct": false },
+        { "text": "Atraksi gravitasi", "explanation": "Atraksi gravitasi antara benda langit seperti planet dan bulan dapat mempengaruhi pasang surut, tetapi tidak menjadi penyebab utama terjadinya angin. Angin lebih banyak dipengaruhi oleh faktor suhu dan tekanan udara.", "correct": false }
+      ]
+    },
+    {
+      "question": "Apa yang menyebabkan gerhana matahari?",
+      "answers": [
+        { "text": "Posisi Bulan yang berada di antara Matahari dan Bumi.", "explanation": "Gerhana matahari terjadi ketika Bulan berada di antara Matahari dan Bumi sehingga menutupi sebagian atau seluruh cahaya Matahari. Fenomena ini terjadi karena ukuran dan jarak relatif antara Bulan, Matahari, dan Bumi. Ketika Bulan berada di jalur antara Matahari dan Bumi, bayangannya jatuh ke permukaan Bumi, menyebabkan terjadinya gerhana matahari.", "correct": true },
+        { "text": "Pergerakan planet", "explanation": "Gerhana matahari tidak disebabkan oleh pergerakan planet. Gerhana matahari terjadi karena posisi khusus Bulan yang berada di antara Matahari dan Bumi.", "correct": false },
+        { "text": "Rotasi Bumi", "explanation": "Rotasi Bumi berhubungan dengan durasi harian dan malam, tetapi tidak secara langsung mempengaruhi terjadinya gerhana matahari.", "correct": false }
+      ]
+    },
+    {
+      "question": "Apa yang menyebabkan hujan salju?",
+      "answers": [
+        { "text": "Pergerakan planet", "explanation": "Pergerakan planet tidak berkaitan dengan terjadinya hujan salju. Hujan salju terjadi karena pemadatan dan pembekuan kristal salju dalam atmosfer.", "correct": false },
+        { "text": "Ketinggian tempat", "explanation": "Ketinggian tempat dapat mempengaruhi suhu di mana hujan salju terjadi, tetapi tidak menjadi penyebab utama terjadinya hujan salju.", "correct": false },
+        { "text": "Pemadatan dan pembekuan kristal salju dalam atmosfer.", "explanation": "Hujan salju terjadi ketika kristal salju membeku dan salju terbentuk dalam atmosfer pada suhu di bawah 0 derajat Celsius. Kristal salju membentuk kristal-kristal yang kompleks saat mereka bertemu dengan kondisi yang tepat dalam awan, dan kemudian salju turun ke permukaan Bumi dalam bentuk hujan salju.", "correct": true }
+      ]
+    },
+    {
+      "question": "Apa yang menyebabkan timbulnya gelombang laut?",
+      "answers": [
+        { "text": "Gravitasi bulan", "explanation": "Gravitasi bulan mempengaruhi pasang surut, tetapi bukan penyebab langsung dari gelombang laut. Gelombang laut terutama disebabkan oleh interaksi antara angin dan permukaan laut.", "correct": false },
+        { "text": "Interaksi antara angin dan permukaan laut.", "explanation": "Gelombang laut terjadi karena adanya angin yang mengalami gesekan dengan permukaan laut. Angin yang bertiup di atas permukaan laut mendorong air, menciptakan tekanan dan gaya gesek yang menyebabkan terbentuknya gelombang.", "correct": true },
+        { "text": "Aktivitas gempa bumi", "explanation": "Aktivitas gempa bumi dapat menciptakan gelombang tsunami, tetapi bukan gelombang laut umum yang terbentuk oleh interaksi angin dan permukaan laut.", "correct": false }
+      ]
+    },
+    {
+      "question": "Apa yang menjadi penyebab pembentukan pelangi?",
+      "answers": [
+        { "text": "Atraksi gravitasi", "explanation": "Atraksi gravitasi tidak terkait dengan pembentukan pelangi. Pelangi terjadi karena pembiasan dan pemantulan cahaya matahari oleh tetesan air di atmosfer.", "correct": false },
+        { "text": "Perubahan suhu", "explanation": "Meskipun perubahan suhu dapat mempengaruhi kondisi atmosfer, bukan menjadi penyebab langsung dari pembentukan pelangi.", "correct": false },
+        { "text": "Pembiasan dan pemantulan cahaya matahari oleh tetesan air di atmosfer.", "explanation": "Pelangi terbentuk ketika cahaya matahari melewati tetesan air di atmosfer dan mengalami pembiasan dan pemantulan. Cahaya yang melewati tetesan air akan dipantulkan kembali dan terpecah menjadi spektrum warna yang terlihat sebagai pelangi.", "correct": true }
+      ]
+    }
+  ]
+}

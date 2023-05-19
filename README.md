@@ -27,6 +27,8 @@ git clone https://github.com/candradwicahyo/quiz-app.git
 
 Berikut adalah tampilan preview dari repository:
 
-![preview](https://github.com/candradwicahyo/quiz-app/blob/master/image.jpg)
+![preview](https://github.com/candradwicahyo/quiz-app/blob/master/preview1.jpg)
+
+![preview](https://github.com/candradwicahyo/quiz-app/blob/master/preview2.jpg)
 
 Untuk mencoba demo, silakan kunjungi [tautan ini](https://candradwicahyo.github.io/quiz-app)
