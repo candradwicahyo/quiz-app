@@ -47,11 +47,10 @@ window.addEventListener("DOMContentLoaded", () => {
     question.textContent = `${currentQuestionIndex + 1}. ${data.question}`;
     totalQuestion.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
     nextBtn.style.display = 'none';
-    alertContainer.innerHTML = '';
-    listContainer.innerHTML = '';
     time = limitTime;
     timer.textContent = time;
     setButton(data.answers);
+    resetState();
     setTimer();
   }
   
@@ -113,7 +112,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   
   function showScore(questions) {
-    listContainer.innerHTML = '';
+    resetState();
     question.textContent = `You Scored ${score} Out Of ${questions.length} Questions`;
   }
   
@@ -142,6 +141,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (type === 'success') return 'alert-success';
     if (type === 'danger') return 'alert-danger';
     return false;
+  }
+  
+  function resetState() {
+    alertContainer.innerHTML = '';
+    listContainer.innerHTML = '';
   }
   
 });
