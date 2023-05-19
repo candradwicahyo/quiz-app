@@ -43,6 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
   startQuizGame();
   
   function showQuestions(questions) {
+    resetState();
     const data = questions[currentQuestionIndex];
     question.textContent = `${currentQuestionIndex + 1}. ${data.question}`;
     totalQuestion.textContent = `${currentQuestionIndex + 1}/${questions.length}`;
@@ -50,7 +51,6 @@ window.addEventListener("DOMContentLoaded", () => {
     time = limitTime;
     timer.textContent = time;
     setButton(data.answers);
-    resetState();
     setTimer();
   }
   
