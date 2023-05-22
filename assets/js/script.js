@@ -56,7 +56,7 @@ window.addEventListener("DOMContentLoaded", () => {
   
   function setButton(answers) {
     answers.forEach(answer => {
-      const button = create('div', 'list btn-answer', answer.text, true);
+      const button = create('button', 'list btn-answer', answer.text, true);
       button.setAttribute('data-explanation', answer.explanation);
       button.setAttribute('data-correct', answer.correct);
       button.addEventListener('click', getAnswer);
